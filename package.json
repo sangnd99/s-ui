@@ -1,0 +1,34 @@
+{
+    "private": true,
+    "scripts": {
+        "build": "turbo run build",
+        "build:ui": "turbo run build --filter=@s-ui/react",
+        "build:hooks": "turbo run build --filter=@s-ui/hooks",
+        "build:utils": "turbo run build --filter=@s-ui/utils",
+        "dev": "turbo run dev",
+        "dev:ui": "turbo run dev --filter=@s-ui/react",
+        "dev:hooks": "turbo run dev --filter=@s-ui/hooks",
+        "dev:doc": "turbo run dev --filter=docs",
+        "dev:utils": "turbo run dev --filter=@s-ui/utils",
+        "lint": "turbo run lint",
+        "clean": "turbo run clean && rm -rf node_modules",
+        "clean:ui": "turbo run clean --filter=@s-ui/react",
+        "clean:hooks": "turbo run clean --filter=@s-ui/hooks",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "changeset": "changeset",
+        "version-packages": "changeset version",
+        "release": "turbo run build --filter=docs^... && changeset publish"
+    },
+    "devDependencies": {
+        "@changesets/cli": "^2.27.1",
+        "prettier": "^3.2.5",
+        "terser": "^5.31.6",
+        "turbo": "^2.1.1"
+    },
+    "name": "@s-ui",
+    "packageManager": "npm@9.6.7",
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ]
+}
